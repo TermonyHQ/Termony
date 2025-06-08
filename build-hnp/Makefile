@@ -9,7 +9,11 @@ PKGS=bash \
 	tar \
 	tree \
 	vim \
-	xxhash
+	xxhash \
+	libunistring \
+	libidn2 \
+	c-ares \
+	curl
 STAMP=$(patsubst %,%/.stamp,$(PKGS))
 
 all: copy
