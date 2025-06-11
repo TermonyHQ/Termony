@@ -27,7 +27,9 @@ PKGS=bash \
 	stream \
 	libevent \
 	tmux \
-	fish
+	fish \
+	zstd \
+	llvm19
 STAMP=$(patsubst %,%/.stamp,$(PKGS))
 
 all: copy
