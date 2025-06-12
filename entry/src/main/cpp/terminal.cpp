@@ -992,7 +992,7 @@ static void *TerminalWorker(void *) {
                                 // OSC 52 ; c ; ? BEL
                                 // paste from clipboard
                                 RequestPaste();
-                                OH_LOG_INFO(LOG_APP, "Request Paste from pasteboard");
+                                OH_LOG_INFO(LOG_APP, "Request Paste from pasteboard: %{public}s", escape_buffer.c_str());
                             }
                             escape_state = state_idle;
                         } else if (i + 1 < r && buffer[i] == '\x1b' && buffer[i + 1] == '\\') {
@@ -1829,6 +1829,19 @@ void ResizeWidth(int new_width) {
     int current_width, current_height;
     glfwGetWindowSize(window, &current_width, &current_height);
     glfwSetWindowSize(window, new_width, current_height);
+}
+
+void Copy(std::string base64) {
+    // TODO
+}
+
+void RequestPaste() {
+    // TODO
+}
+
+std::string GetPaste() {
+    // TODO
+    return "";
 }
 
 int main() {
