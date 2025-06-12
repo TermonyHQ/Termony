@@ -34,7 +34,8 @@ PKGS=bash \
 	mpfr \
 	mpc \
 	gcc \
-	zstd
+	zstd \
+	llvm19
 STAMP=$(patsubst %,%/.stamp,$(PKGS))
 
 all: copy
