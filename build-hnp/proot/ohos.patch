@@ -89,6 +89,23 @@ index b7f8d46..c18abb2 100644
  #include "tracee/tracee.h"
  #include "path.h"
  
+diff --git a/src/path/path.c b/src/path/path.c
+index d5c9ec6..04e4a3f 100644
+--- a/src/path/path.c
++++ b/src/path/path.c
+@@ -137,10 +137,12 @@ int which(Tracee *tracee, const char *paths, char host_path[PATH_MAX], const cha
+ 			return -EACCES;
+ 		}
+ 
++#ifndef __OHOS__
+ 		if (is_explicit && (statr.st_mode & S_IXUSR) == 0) {
+ 			note(tracee, ERROR, USER, "'%s' is not executable", command);
+ 			return -EACCES;
+ 		}
++#endif
+ 
+ 		found = true;
+ 
 diff --git a/src/path/temp.c b/src/path/temp.c
 index 8d8aa63..e726ec2 100644
 --- a/src/path/temp.c
