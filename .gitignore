@@ -16,3 +16,6 @@
 arkuix-sdk.zip
 *.hap
 .vscode
+
+# for macOS
+.DS_Store

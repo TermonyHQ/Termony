@@ -41,10 +41,12 @@ PKGS=gettext \
 	mpc \
 	gcc \
 	expat \
+	libiconv \
 	git \
 	aria2 \
 	xz \
 	gdb \
+	gettext \
 	python \
 	libusb \
 	hdc \
