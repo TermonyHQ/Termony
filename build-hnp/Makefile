@@ -1,20 +1,28 @@
-PKGS=gettext \
-	bash \
+PKGS= \
+	pcre2 \
+	glib \
+	gettext \
+	ncurses \
+	libevent \
+	expat \
+	libiconv \
+	libffi \
+	lz4 \
+	xz \
+	tar \
+	talloc \
+	zstd \
+	zlib \
+	gettext \
+	libusb \
 	binutils \
 	busybox \
 	coremark \
-	lz4 \
+	bash \
 	make \
-	ncurses \
-	talloc \
 	openssl \
-	zstd \
-	pcre2 \
-	zlib \
-	libarchive \
 	proot \
 	strace \
-	tar \
 	tree \
 	vim \
 	xxhash \
@@ -32,7 +40,6 @@ PKGS=gettext \
 	vkpeak \
 	kbd \
 	stream \
-	libevent \
 	tmux \
 	fish \
 	elf-loader \
@@ -40,18 +47,12 @@ PKGS=gettext \
 	mpfr \
 	mpc \
 	gcc \
-	expat \
-	libiconv \
+	libarchive \
 	git \
 	aria2 \
-	xz \
 	gdb \
-	gettext \
 	python \
-	libusb \
 	hdc \
-	libffi \
-	glib \
 	qemu \
 	qemu-vroot
 STAMP=$(patsubst %,%/.stamp,$(PKGS))
