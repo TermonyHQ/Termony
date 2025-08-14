@@ -23,7 +23,7 @@ all: download/src.zip ohos_config.sh
 	cd temp/pkgconfig && cp ../../../sysroot/lib/pkgconfig/opus.pc . && sed -i 's@$(PREFIX)@$(shell pwd)/../sysroot@g' opus.pc
 
 	# debug output
-	pkg-config -cflags --libs SvtAv1Enc opus
+	pkg-config --cflags --libs SvtAv1Enc opus
 
 	# configure and build
 	cd temp/src && ./ohos_config.sh $(shell pwd)/temp/src $(PREFIX) aarch64 $(OHOS_SDK_HOME)/native/llvm $(OHOS_SDK_HOME)/native/sysroot false
