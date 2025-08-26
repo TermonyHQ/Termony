@@ -1,7 +1,7 @@
 # Termony
 
-> Language &nbsp;Selection: [English](./README.md) &nbsp;&nbsp;&nbsp;&nbsp; [中文](./README_CN.md) <br /><br />
-> Repository Selection: [GitHub](https://github.com/jiegec/Termony)  &nbsp;&nbsp;&nbsp;&nbsp; [Gitee](https://gitee.com/jiegec/Termony)
+> Language Selection: [English](./README.md) [中文](./README_CN.md) <br /><br />
+> Repository Selection: [GitHub](https://github.com/jiegec/Termony) [Gitee](https://gitee.com/jiegec/Termony)
 
 Termux for HarmonyOS Computer. Working in Progress.
 
@@ -36,7 +36,7 @@ Bundled packages:
 
 Pro tip: you can use these utilities in the builtin Terminal app under `/data/service/hnp`:
 
-![](./screenshot_hishell_cn.jpg)
+![](./screenshot_hishell.jpg)
 
 Although some paths might get wrong due to prefix set to `/data/app/base.org/base_1.0` (thanks to @duskmoon314). You can override them like:
 
