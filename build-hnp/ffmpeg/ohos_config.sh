@@ -15,6 +15,8 @@ FFMPEG_ENABLE_DECODERS=$9
 
 FF_CONFIG_OPTIONS="
     --prefix=${FFMPEG_OUT_PATH}
+    --enable-vulkan
+    --enable-libshaderc
     --enable-libx264
     --enable-libx265
     --enable-libvpx

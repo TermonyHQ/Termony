@@ -62,6 +62,10 @@ PKGS=gettext \
 	libopus \
 	libogg \
 	libvorbis \
+	vulkan-headers \
+	volk \
+	vulkan-tools \
+	shaderc \
 	ffmpeg
 else ifeq ($(OHOS_ARCH),x86_64)
 PKGS=gettext \
@@ -126,6 +130,10 @@ PKGS=gettext \
 	libopus \
 	libogg \
 	libvorbis \
+	vulkan-headers \
+	volk \
+	vulkan-tools \
+	shaderc \
 	ffmpeg
 else
 	echo "Unsupported OHOS_ARCH=$(OHOS_ARCH)"

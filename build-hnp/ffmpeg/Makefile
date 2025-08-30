@@ -2,22 +2,16 @@ include ../utils/Makefrag
 
 export PKG_CONFIG_LIBDIR := $(shell pwd)/temp/pkgconfig:$(PKG_CONFIG_LIBDIR)
 
-all: download/src.zip ohos_config.sh
+all: download/ffmpeg-8.0.tar.xz ohos_config.sh
 	rm -rf temp build
 	mkdir -p temp/build temp/pkgconfig build/bin
 
-	cd temp && unzip ../download/src.zip
-	cd temp && mv third_party_ffmpeg-OpenHarmony-5.1.0-Release src
+	cd temp && tar vxf ../download/ffmpeg-8.0.tar.xz
+	cd temp && mv ffmpeg-8.0 src
 
 	# fix script permission
 	cd temp/src && cp ../../ohos_config.sh . && chmod +x ./ffbuild/*.sh
 
-	# fix typo in src
-	cd temp/src && sed -i 's/zsteam/zstream/g' libavcodec/mvha.c
-
-	# fix missing vulkan_beta.h
-	cd temp/src && touch vulkan_beta.h
-	
 	# fix pkgconfig prefix
 	cd temp/pkgconfig && cp ../../../sysroot/lib/pkgconfig/SvtAv1Enc.pc . && sed -i 's@$(PREFIX)@$(shell pwd)/../sysroot@g' SvtAv1Enc.pc
 	cd temp/pkgconfig && cp ../../../sysroot/lib/pkgconfig/opus.pc . && sed -i 's@$(PREFIX)@$(shell pwd)/../sysroot@g' opus.pc
@@ -36,6 +30,6 @@ all: download/src.zip ohos_config.sh
 	mkdir -p ../sysroot/bin
 	cp -rfv build$(PREFIX)/. ../sysroot | tee file.lst
 
-download/src.zip:
+download/ffmpeg-8.0.tar.xz:
 	mkdir -p download
-	cd download && wget -O src.zip https://gitee.com/openharmony/third_party_ffmpeg/repository/archive/OpenHarmony-5.1.0-Release.zip
+	cd download && wget -O ffmpeg-8.0.tar.xz https://ffmpeg.org/releases/ffmpeg-8.0.tar.xz
