@@ -32,6 +32,7 @@ Termux for HarmonyOS Computer。开发进行中。
 
 - [elf-loader](https://github.com/MikhailProg/elf): (你可以运行没有可执行权限的可执行文件！例如 `cp /data/app/bin/bash ~/ && loader ~/bash`)
 - qemu{,vroot}: (你可以运行没有可执行权限的可执行文件！例如 `cp /data/app/bin/bash ~/ && qemu-aarch64 ~/bash`)
+- qemu-system-{aarch64,x86_64}: 你可以借助 qemu-system 来运行虚拟机（支持 x86_64 和 aarch64）
 
 小技巧：你可以在内置终端应用中使用这些工具 `/data/service/hnp`：
 

@@ -32,6 +32,7 @@ Bundled packages:
 
 - [elf-loader](https://github.com/MikhailProg/elf): you can run executable without executable permission! e.g. `cp /data/app/bin/bash ~/ && loader ~/bash`
 - qemu{,vroot}: you can run executable without executable permission! e.g. `cp /data/app/bin/bash ~/ && qemu-aarch64 ~/bash`
+- qemu-system-{aarch64,x86_64}: you can start a system emulator with qemu-system.
 
 Pro tip: you can use these utilities in the builtin Terminal app under `/data/service/hnp`:
 
