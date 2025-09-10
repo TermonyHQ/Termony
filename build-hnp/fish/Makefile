@@ -1,8 +1,8 @@
 include ../utils/Makefrag
 
-SOURCE_URL = https://github.com/fish-shell/fish-shell/releases/download/3.7.1/fish-3.7.1.tar.xz
-SOURCE_FILE = fish-3.7.1.tar.xz
-SOURCE_DIR = fish-3.7.1
+SOURCE_URL = https://github.com/fish-shell/fish-shell/releases/download/4.0.2/fish-4.0.2.tar.xz
+SOURCE_FILE = fish-4.0.2.tar.xz
+SOURCE_DIR = fish-4.0.2
 # TCSANOW does not work, use TCSADRAIN
 PATCH_SOURCE = sed -i.bak 's/TCSANOW,/TCSADRAIN,/' temp/$(SOURCE_DIR)/src/reader.cpp && \
 	sed -i.bak 's/TCSANOW,/TCSADRAIN,/' temp/$(SOURCE_DIR)/src/fish_key_reader.cpp && \
