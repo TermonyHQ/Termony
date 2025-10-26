@@ -2,7 +2,6 @@ ifeq ($(OHOS_ARCH),aarch64)
 PKGS=gettext \
 	bash \
 	binutils \
-	busybox \
 	coremark \
 	lz4 \
 	make \
@@ -15,24 +14,19 @@ PKGS=gettext \
 	libarchive \
 	proot \
 	strace \
-	tar \
 	tree \
-	vim \
 	xxhash \
 	libunistring \
 	libidn2 \
 	c-ares \
-	curl \
 	yyjson \
 	fastfetch \
 	sl \
-	openssh \
 	ncnn \
 	readline \
 	htop \
 	vkpeak \
 	kbd \
-	stream \
 	libevent \
 	tmux \
 	fish \
@@ -51,8 +45,6 @@ PKGS=gettext \
 	hdc \
 	libffi \
 	glib \
-	qemu \
-	qemu-vroot \
 	libx264 \
 	libx265 \
 	libvpx \
@@ -69,13 +61,11 @@ PKGS=gettext \
 	ffmpeg \
 	util-linux \
 	nano \
-	less \
 	p7zip
 else ifeq ($(OHOS_ARCH),x86_64)
 PKGS=gettext \
 	bash \
 	binutils \
-	busybox \
 	coremark \
 	lz4 \
 	make \
@@ -88,18 +78,14 @@ PKGS=gettext \
 	libarchive \
 	proot \
 	strace \
-	tar \
 	tree \
-	vim \
 	xxhash \
 	libunistring \
 	libidn2 \
 	c-ares \
-	curl \
 	yyjson \
 	fastfetch \
 	sl \
-	openssh \
 	ncnn \
 	readline \
 	htop \
@@ -123,8 +109,6 @@ PKGS=gettext \
 	hdc \
 	libffi \
 	glib \
-	qemu \
-	qemu-vroot \
 	libx264 \
 	libx265 \
 	libvpx \
@@ -141,7 +125,6 @@ PKGS=gettext \
 	ffmpeg \
 	util-linux \
 	nano \
-	less \
 	p7zip
 else
 	echo "Unsupported OHOS_ARCH=$(OHOS_ARCH)"
