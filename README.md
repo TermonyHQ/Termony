@@ -44,7 +44,12 @@ Although some paths might get wrong due to prefix set to `/data/app/base.org/bas
 LD_LIBRARY_PATH=/data/service/hnp/base.org/base_1.0/lib TERMINFO=/data/service/hnp/base.org/base_1.0/share/terminfo fish
 ```
 
+
 You can persist them to `~/.bashrc`, and run bash before executing other commands from Termony:
+
+If your computer is running HarmonyOS 6.0 or above, then your computer supports sudo and allows editing system environment variables. You can add the following environment variables to the system environment variables, so that in the future you can run commands in Termony directly after opening the terminal without having to execute bash or source ~/.bashrc first.
+
+run `sudo vim /data/service/el1/public/startup/profile` or `sudo vim /system/etc/profile` or `sudo vim /etc/profile`
 
 ```shell
 if [ -d "/data/service/hnp/base.org/base_1.0" ]; then
