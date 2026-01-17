@@ -8,8 +8,8 @@ on:
     - cron: "0 2 * * *"
 
 env:
-  OHOS_SDK_RELEASE_VERSION: "5.1.0"
-  OHOS_SDK_VERSION: "5.1.0.107"
+  OHOS_SDK_RELEASE_VERSION: "6.0.0.1"
+  OHOS_SDK_VERSION: "6.0.0.48"
   OHOS_SDK_HOME: ${{ github.workspace }}/ohos-sdk/linux
 
 jobs:
@@ -19,23 +19,23 @@ jobs:
       - name: Update Apt Cache
         run: sudo apt update
 
-      - name: Free Disk Space (Ubuntu)
-        uses: jlumbroso/free-disk-space@main
+      - name: Free Disk Space
+        uses: endersonmenezes/free-disk-space@v3  # Use @main for latest, @v3 for stable
         with:
-          # this might remove tools that are actually needed,
-          # if set to "true" but frees about 6 GB
-          tool-cache: true
-          # all of these default to true, but feel free to set to
-          # "false" if necessary for your workflow
-          android: true
-          dotnet: true
-          haskell: true
-          large-packages: true
-          docker-images: true
-          swap-storage: true
+          remove_android: true
+          remove_dotnet: true
+          remove_haskell: true
+          remove_tool_cache: true
+          remove_swap: true
+          remove_packages: "azure-cli google-cloud-cli microsoft-edge-stable google-chrome-stable firefox postgresql* temurin-* *llvm* mysql* dotnet-sdk-*"
+          remove_packages_one_command: true
+          remove_folders: "/usr/share/swift /usr/share/miniconda /usr/share/az* /usr/local/lib/node_modules /usr/local/share/chromium /usr/local/share/powershell /usr/local/julia /usr/local/aws-cli /usr/local/aws-sam-cli /usr/share/gradle"
+          rm_cmd: "rm"  # Use 'rmz' for faster deletion (default: 'rm')
+          rmz_version: "3.1.1"  # Required when rm_cmd is 'rmz'
+          testing: false
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           submodules: recursive
 
@@ -50,7 +50,17 @@ jobs:
         with:
           max-size: 2G
 
+      - name: Cache OHOS Toolchain
+        id: cache-toolchain # Assign an ID to this step to check its output later
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.OHOS_SDK_HOME }}
+          key: ${{ runner.os }}-ohos-${{ env.OHOS_SDK_RELEASE_VERSION }}
+          restore-keys: |
+            ${{ runner.os }}-ohos-${{ env.OHOS_SDK_RELEASE_VERSION }}
+
       - name: Download OHOS SDK
+        if: steps.cache-toolchain.outputs.cache-hit != 'true'
         shell: bash
         run: |
           curl -OL https://repo.huaweicloud.com/openharmony/os/${OHOS_SDK_RELEASE_VERSION}-Release/ohos-sdk-windows_linux-public.tar.gz
@@ -69,7 +79,7 @@ jobs:
           USE_CCACHE=1 OHOS_ARCH=aarch64 OHOS_ABI=arm64-v8a make -C build-hnp
 
       - name: Upload hnp
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: hnp
           path: |
